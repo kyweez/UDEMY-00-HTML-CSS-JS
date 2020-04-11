@@ -1,28 +1,129 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Kaushan+Script&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/5773d036cb.js" crossorigin="anonymous"></script>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <title>Barber shop</title>
 </head>
+
 <body>
+    <!-- Home -->
     <header id="home">
         <nav id="navigation">
             <a href="#home" class="linknav">Home</a>
-            <a href="values" class="linknav">Our values</a>
-            <a href="prices" class="linknav">Our prices</a>
-            <a href="contact" class="linknav">Contact</a>
+            <a href="#section-about" class="linknav">Our values</a>
+            <a href="#price-section" class="linknav">Our prices</a>
+            <a href="#contact" class="linknav">Contact</a>
             <a class="icon"><i class="fas fa-bars"></i></a>
         </nav>
         <h1>Your Traditional Barber</h1>
         <h2>Razors, Combs and Know-how</h2>
         <a href="section-about" id="arrow"><i class="fas fa-cut"></i></a>
     </header>
+
+    <!-- About section -->
+    <section id="section-about" class="section-about">
+
+        <div class="center-title">
+            <h2 class="title-about">About our values</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-1-of-2">
+                <h3 class="subtitle-about">Cut hair like 100 years ago</h3>
+                <p class="paragraph">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, tempore officiis error optio
+                    accusantium neque mollitia ea numquam! Ea aut quia odit nesciunt asperiores ducimus, impedit veniam
+                    nam amet laborum?
+                </p>
+                <h3 class="subtitle-about">The art of beard trimming</h3>
+                <p class="paragraph">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, tempore officiis error optio
+                    accusantium neque mollitia ea numquam! Ea aut quia odit nesciunt asperiores ducimus, impedit veniam
+                    nam amet laborum?
+                </p>
+            </div>
+            <div class="col-1-of-2">
+                <div class="composition">
+                    <img src="./img/3imgs1.jpg" alt="Barber picture 1" class="picture-composition picture-composition-1">
+                    <img src="./img/3imgs2.jpeg" alt="Barber picture 2" class="picture-composition picture-composition-2">
+                    <img src="./img/3imgs3.jpg" alt="Barber picture 3" class="picture-composition picture-composition-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices section -->
+    <section id="price-section">
+        <h2>Our prices</h2>
+        <div id="flex-container">
+            <div class="flex-cards">
+                <div class="head">
+                    <p>Layered cut</p>
+                </div>
+                <div class="content">Oil</div>
+                <div class="content">Cream</div>
+                <div class="content">Shampoo</div>
+                <div class="content">Layered cut</div>
+                <div class="price-class">
+                    <p>10 $</p>
+                </div>
+            </div>
+            <div class="flex-cards">
+                <div class="head">
+                    <p>Beard</p>
+                </div>
+                <div class="content">Oil</div>
+                <div class="content">Cream</div>
+                <div class="content">Shampoo</div>
+                <div class="content">Beard cut</div>
+                <div class="price-class">
+                    <p>25 $</p>
+                </div>
+            </div>
+            <div class="flex-cards">
+                <div class="head">
+                    <p>Both</p>
+                </div>
+                <div class="content">Oil</div>
+                <div class="content">Cream</div>
+                <div class="content">Layered cut</div>
+                <div class="content">Beard cut</div>
+                <div class="price-class">
+                    <p>32 $</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide sentences section -->
+    <section id="sentences-slide">
+        <div class="wrapper">
+            <div class="center">
+                <div class="slider">
+                    <div class="change-hidden">
+                        <div class="container">
+                            <div class="element">Wonderful !</div>
+                            <div class="element">Perfect service.</div>
+                            <div class="element">A perfectly trimmed beard.</div>
+                            <div class="element">Quality products !</div>
+                            <div class="element">Wonderful !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
 </body>
+
 </html>

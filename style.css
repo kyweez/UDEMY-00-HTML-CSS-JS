@@ -15,7 +15,9 @@ body{
     background-color: #f0Ead6;
     text-align: center;
     height: 10rem;
+    /* Permet de faire une forme. Chaque couple de coordonnees suit la precedente */
     clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 55% 70%, 50% 100%, 45% 70%, 0% 70%);
+    /* Permet de faire une transisiton sur tout l'element */
     transition: all 0.5s ease-in-out;
 }
 #navigation a{
@@ -60,7 +62,7 @@ header h2{
     top: 32rem;
     font-family: 'Abril Fatface';
     font-size: 5rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.3rem;
 }
 header #arrow{
     color: black;
@@ -69,7 +71,8 @@ header #arrow{
     position: absolute;
     top: 90%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Permet de decaler l'image de la moitie de sa taille pour la centrer correctement */
+    /* Permet de decaler l'image de la moitie de sa taille pour la centrer correctement */
+    transform: translate(-50%, -50%);
     font-size: 4rem;
     line-height: 8rem;
     text-align: center;
@@ -79,10 +82,289 @@ header #arrow{
     box-shadow: 0 0 0 0 #f7f7f7;
     animation: pulse 1.3s infinite;
 }
-
 @keyframes pulse{
     to{
         /* 0(x), 0(y), 0(flou), 1rem (etendue) */
         box-shadow: 0 0 0 1rem rgba(255, 255, 255, 0.01);
+    }
+}
+/*########## Premiere section about + 3 photos ##########*/
+.section-about{
+    background-color: #f7f7f7;
+    padding-bottom: 10rem;
+}
+.center-title{
+    text-align: center;
+    margin-bottom: 8rem;
+}
+.title-about{
+    font-size: 5.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right, #373737, #c0b283);
+    /* Permet d'utiliser la propriete "background-clip: text" non disponible sur certains navigateurs */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.2rem;
+    padding-top: 5rem;
+}
+.row{
+    max-width: 114rem;
+    margin: 0 auto;
+}
+.subtitle-about{
+    font-size: 1.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+.paragraph{
+    font-size: 1.9rem;
+}
+/* Permet de selectionner tous les elements du selecteurs sauf le dernier enfant */
+.paragraph:not(:last-child){
+    margin-bottom: 3rem;
+}
+
+/* 
+    ### HACK DU FLOAT ###
+
+    Le float fait sortir l'element du flux, c'est pour ca qu'il existe un hack pour repositionner  
+    
+    ~~~ ::AFTER ~~~
+    En CSS, ::after crée un pseudo-élément qui sera le dernier enfant de l'élément sélectionné.
+    Il est souvent utilisé pour ajouter du contenu cosmétique à un élément, en utilisant la propriété CSS content.
+    Par défaut, ce contenu est de type inline.
+    Le pseudo element necessite obligatoirement un "content"  sinon ca ne fonctionne pas.
+
+    ~~~ CLEAR ~~~
+    La propriété clear indique si un élément peut être situé à côté d'éléments flottants qui le précèdent ou s'il doit être déplacé vers le bas pour être en dessous de ces éléments.
+    La propriété clear s'applique aux éléments flottants comme aux éléments non-flottants.
+*/
+.row::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+/* 
+    Mettre entre crochets permet de selectionner dans un attribut les elements particuliers
+    Dans cas, il s'agit de selectionner les classe enfants de .row qui commencent par "col-"
+ */
+.row [class^=col-]{
+    float: left;
+}
+.row [class^=col-]:not(:last-child){
+    margin-right: 6rem;
+}
+.row .col-1-of-2{
+    width: calc((100% - 6rem)/2);
+}
+.composition{
+    position: relative;
+}
+.picture-composition{
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.4);
+    border: 2px solid #f7f7f7;
+    border-radius: 0.2rem;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.05s;
+    outline-offset: 1rem;
+}
+.picture-composition-1{
+    left: 0;
+    top: -2rem;
+}
+.picture-composition-2{
+    right: 0;
+    top: 2rem;
+}
+.picture-composition-3{
+    left: 20%;
+    top: 10rem;
+}
+.picture-composition:hover{
+    outline: 1.5rem solid #c0b283;
+    transform: scale(1.05) translateY(-0.5rem);
+    box-shadow: 0 2.5rem 4rem rgba(235, 225, 225, 0.801);
+    z-index: 30;
+}
+.composition:hover .picture-composition:not(:hover){
+    transform: scale(0.95);
+    -webkit-filter: contrast(50%);
+    filter: contrast(50%);
+}
+
+/*########## Section tarif ##########*/
+#price-section{
+    border-top: 1px dashed rgb(209, 174, 59);
+}
+#price-section h2{
+    text-align: center;
+    font-size: 5.5rem;
+    background: #f7f7f7;
+    background-image: linear-gradient(to right, #000000, rgb(255, 239, 185));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    padding-top: 5rem;
+    text-transform: uppercase;
+    margin: 4.650rem 0;
+}
+#flex-container{
+    background-color: #f7f7f7;
+    width: 100%;
+    height: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8rem;
+}
+.flex-cards{
+    width: 30rem;
+    height: 45rem;
+    margin: 2rem;
+    transition: all 0.2s ease-in;
+    overflow: hidden;
+}
+.flex-cards:nth-child(1){
+    border: 0.1rem dashed #373737;
+}
+.flex-cards:nth-child(2){
+    border: none;
+}
+.flex-cards:nth-child(3){
+    border: 0.1rem dashed #373737;
+}
+.head{
+    width: 100%;
+    height: 10rem;
+    text-align: center;
+    color: #373737;
+    background-color: #f0ead6;
+}
+.head p{
+    margin: 0;
+    font-size: 3rem;
+    line-height: 10rem;
+    font-family: 'Abril Fatface';
+}
+.content{
+    margin: auto;
+    text-align: center;
+    font-size: 1.6rem;
+    background-color: #f0Ead6;
+    height: 6rem;
+    line-height: 6rem;
+    overflow: hidden;
+
+}
+.price-class{
+    margin: 0;
+    height: 11rem;
+    background-color: #f0ead6;
+}
+.price-class p{
+    margin: 0;
+    font-size: 5rem;
+    text-align: center;
+    line-height: 11rem;
+    font-family: 'Abril Fatface';
+}
+.flex-cards:nth-child(2) .head{
+    background-color: #373737;
+    color: #ffd700;
+}
+.flex-cards:nth-child(2) .content{
+    background-color: #373737;
+    color: #ffd700;
+}
+.flex-cards:nth-child(2) .price-class{
+    background-color: #373737;
+    color: #ffd700;
+}
+.flex-cards:hover{
+    transform: scale(1.1);
+}
+.flex-cards div:not(:last-child){
+    border-bottom: 0.1rem dashed #373737;
+}
+.flex-cards:nth-child(2) div:not(:last-child){
+    border-bottom: 0.1rem solid #7a7970;
+}
+
+/*########## Section phrases slides ##########*/
+#sentences-slide{
+    height: 60rem;
+    width: 100%;
+    border-top: 0.1rem dashed rgb(209, 174, 59);
+    background-image: url(./img/sectionBg.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110rem;
+    height: 40rem;
+    transform: translate(-50%, -50%);
+    border-radius: 0.2rem;
+    background: rgba(55, 55, 55, 0.4);
+    color: #f7f7f7;
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -2.25rem;
+}
+.slider{
+    position: relative;
+    width: 100%;
+    height: 4.5rem;
+    text-align: center;
+    line-height: 4.5rem;
+}
+.slider .change-hidden{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    height: 13rem;
+    line-height: 13rem;
+    width: 100rem;
+    overflow: hidden;
+}
+.slider .change-hidden .container{
+    position: relative;
+    animation: slider 8s ease-in-out infinite;
+}
+.slider .change-hidden .element{
+    font-size: 8rem;
+    font-weight: 700;
+}
+@keyframes slider{
+    0%, 20%{
+        transform: translateY(0);
+    }
+    25%, 45%{
+        transform: translateY(-13rem);
+    }
+    50%, 70%{
+        transform: translateY(-26rem);
+    }
+    75%, 95%{
+        transform: translateY(-39rem);
+    }
+    100%{
+        transform: translateY(-52rem);
     }
 }
